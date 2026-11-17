@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { background: #ffe6f0; font-family: sans-serif; text-align: center; padding: 15px; }
+  .box { background: white; border-radius: 20px; padding: 20px; max-width: 400px; margin: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+  button { background: #ff66a3; color: white; border: none; padding: 8px 12px; margin: 4px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+  button:active { transform: scale(0.95); }
+  #pesan { color: #ff3385; font-weight: bold; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>🎀 Salon Kucing Mimi 🎀</h2>
+  <div id="pesan">Klik kucingnya ya! 💕</div>
+
+  <svg width="220" height="240" viewBox="0 0 300 320" onclick="elus()">
+    <!-- Ekor -->
+    <path id="ekor" d="M 210 250 Q 270 220 250 170" fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+    <!-- Badan -->
+    <ellipse id="badan" cx="150" cy="235" rx="65" ry="65" fill="#ffffff" stroke="#ffb3d1" stroke-width="3"/>
+    <!-- Baju -->
+    <path id="baju" d="M 92 205 L 208 205 L 225 285 Q 150 305 75 285 Z" fill="#ff80b3"/>
+    <!-- Telinga -->
+    <polygon id="tel1" points="75,115 90,45 135,85" fill="#ffffff" stroke="#ffb3d1" stroke-width="3"/>
+    <polygon id="tel2" points="225,115 210,45 165,85" fill="#ffffff" stroke="#ffb3d1" stroke-width="3"/>
+    <!-- Kepala -->
+    <ellipse id="kepala" cx="150" cy="140" rx="85" ry="70" fill="#ffffff" stroke="#ffb3d1" stroke-width="3"/>
+    <!-- Pipi -->
+    <ellipse cx="95" cy="155" rx="12" ry="7" fill="#ff99c2"/>
+    <ellipse cx="205" cy="155" rx="12" ry="7" fill="#ff99c2"/>
+    
+    <!-- Ekspresi Wajah -->
+    <g id="wajah">
+      <circle cx="115" cy="130" r="12" fill="#333"/>
+      <circle cx="112" cy="126" r="4" fill="#fff"/>
+      <circle cx="185" cy="130" r="12" fill="#333"/>
+      <circle cx="182" cy="126" r="4" fill="#fff"/>
+      <path d="M 140 155 Q 150 165 160 155" fill="none" stroke="#333" stroke-width="3"/>
+    </g>
+
+    <!-- Aksesoris -->
+    <g id="aksesoris">
+      <polygon points="150,70 120,50 120,90" fill="#ff3385"/>
+      <polygon points="150,70 180,50 180,90" fill="#ff3385"/>
+      <circle cx="150" cy="70" r="9" fill="#ff99c2"/>
+    </g>
+  </svg>
+
+  <div>
+    <p><b>Ekspresi:</b></p>
+    <button onclick="wajah('imut')">🥰 Imut</button>
+    <button onclick="wajah('cinta')">😍 Cinta</button>
+    <button onclick="wajah('tertawa')">😆 Tertawa</button>
+    <button onclick="wajah('ngambek')">😤 Ngambek</button>
+
+    <p><b>Aksesoris:</b></p>
+    <button onclick="aksesoris('pita')">🎀 Pita</button>
+    <button onclick="aksesoris('mahkota')">👑 Mahkota</button>
+    <button onclick="aksesoris('kacamata')">🕶️ Kacamata</button>
+
+    <p><b>Warna Gaun:</b></p>
+    <button onclick="baju('#ff80b3')">Pink</button>
+    <button onclick="baju('#b388ff')">Ungu</button>
+    <button onclick="baju('#4fc3f7')">Biru</button>
+    <button onclick="baju('#ffd54f')">Kuning</button>
+  </div>
+</div>
+
+<script>
+  function elus() {
+    document.getElementById('pesan').innerText = "Meowww~ Aku senang sekali! 💖";
+  }
+  function wajah(tipe) {
+    let w = document.getElementById('wajah');
+    if(tipe=='imut') w.innerHTML = '<circle cx="115" cy="130" r="12" fill="#333"/><circle cx="112" cy="126" r="4" fill="#fff"/><circle cx="185" cy="130" r="12" fill="#333"/><circle cx="182" cy="126" r="4" fill="#fff"/><path d="M 140 155 Q 150 165 160 155" fill="none" stroke="#333" stroke-width="3"/>';
+    if(tipe=='cinta') w.innerHTML = '<text x="100" y="140" font-size="25">❤️</text><text x="170" y="140" font-size="25">❤️</text><path d="M 140 155 Q 150 165 160 155" fill="none" stroke="#333" stroke-width="3"/>';
+    if(tipe=='tertawa') w.innerHTML = '<path d="M 102 132 Q 115 115 128 132" fill="none" stroke="#333" stroke-width="4"/><path d="M 172 132 Q 185 115 198 132" fill="none" stroke="#333" stroke-width="4"/><path d="M 138 153 Q 150 175 162 153 Z" fill="#ff3385"/>';
+    if(tipe=='ngambek') w.innerHTML = '<line x1="100" y1="115" x2="128" y2="125" stroke="#333" stroke-width="3"/><line x1="200" y1="115" x2="172" y2="125" stroke="#333" stroke-width="3"/><circle cx="115" cy="133" r="9" fill="#333"/><circle cx="185" cy="133" r="9" fill="#333"/><path d="M 140 165 Q 150 155 160 165" fill="none" stroke="#333" stroke-width="3"/>';
+  }
+  function aksesoris(tipe) {
+    let a = document.getElementById('aksesoris');
+    if(tipe=='pita') a.innerHTML = '<polygon points="150,70 120,50 120,90" fill="#ff3385"/><polygon points="150,70 180,50 180,90" fill="#ff3385"/><circle cx="150" cy="70" r="9" fill="#ff99c2"/>';
+    if(tipe=='mahkota') a.innerHTML = '<polygon points="122,72 128,42 140,60 150,35 160,60 172,42 178,72" fill="#ffd700"/>';
+    if(tipe=='kacamata') a.innerHTML = '<rect x="92" y="115" width="45" height="28" rx="6" fill="#333"/><rect x="163" y="115" width="45" height="28" rx="6" fill="#333"/><line x1="137" y1="128" x2="163" y2="128" stroke="#333" stroke-width="4"/>';
+  }
+  function baju(warna) {
+    document.getElementById('baju').setAttribute('fill', warna);
+  }
+</script>
+
+</body>
+</html>
